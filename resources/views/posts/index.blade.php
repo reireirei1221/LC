@@ -9,14 +9,14 @@
 <body>
 	<h1>Blog Name</h1>
 	<div class='posts'>
-		@foreach ($posts as $post)
+	@foreach ($posts as $post)
 			<div class='post'>
 				<h2 class='title'>{{$post->title}}</h2>
 				<p class='body'>{{$post->body}}</p>
 				<p class='created_at'>{{$post->created_at}}</p>
 				<p class='updated_at'>{{$post->updated_at}}</p>
 			</div>
-		@endforeach
+	@endforeach
 	</div>
 </body>
 </html>
