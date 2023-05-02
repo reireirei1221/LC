@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 # use Illuminate\Http\Request;
 use App\Models\Post;
+use App\Models\Category;
 use App\Http\Requests\PostRequest;
 
 class PostController extends Controller
@@ -19,9 +20,9 @@ class PostController extends Controller
         return view('posts/show')->with(['post' => $post]);
     }
 
-    public function create()
+    public function create(Category $category)
     {
-        return view('posts/create');
+        return view('posts/create')->with(['categories' => $category->get()]);
     }
 
     public function store(Post $post, PostRequest $request)
@@ -31,9 +32,9 @@ class PostController extends Controller
         return redirect('/posts/' . $post->id);
     }
 
-    public function edit(Post $post)
+    public function edit(Post $post, Category $category)
     {
-        return view('posts/edit')->with(['post' => $post]);
+        return view('posts/edit')->with(['post' => $post, 'categories' => $category->get()]);
     }
 
     public function update(PostRequest $request, Post $post)

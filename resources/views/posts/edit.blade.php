@@ -21,6 +21,17 @@
 
                 <!-- <p class="body__error" style="color:red">{{ $errors->first('post.body') }}</p> -->
             </div>
+            <div class="categories">
+                <h2>Categories</h2>
+                <select name="post[category_id]">
+                    @foreach ($categories as $category)
+                        <option value="{{ $category->id }}"
+                            @if ($post->category_id === $category->id)
+                                selected
+                            @endif
+                        >{{ $category->name }}</option>
+                    @endforeach
+                </select>
             <input type="submit" value="store"/>
         </form>
         <div class="footer">
