@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\CategoryController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,6 +16,8 @@ use App\Http\Controllers\PostController;
  */
 
 Route::get('/', [PostController::class, 'index']);
+
+Route::get('/categories/{category}', [CategoryController::class, 'index']);
 
 Route::post('/posts', [PostController::class, 'store']);
 
