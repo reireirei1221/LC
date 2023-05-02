@@ -24,6 +24,23 @@
     <div class="edit">
         <a href="/posts/{{ $post->id }}/edit">編集</a>
     </div>
+    <form action="/posts/{{ $post->id }}" id="form_{{ $post->id }}" method="post">
+        @csrf
+        @method('DELETE')
+        <div class="delete">
+            <button onclick="deletePost({{ $post->id }})">削除</button>
+        </div>
+    </form>
+
+    <script>
+        function deletePost(id) {
+            'use strict'
+            if (confirm('本当に削除していいですか？')) {
+                document.getElementById('form_' + id).submit();
+            }
+        }
+    </script>
+    
     <div class="footer">
         <a href="/">戻る</a>
     </div>
