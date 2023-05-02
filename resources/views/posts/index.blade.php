@@ -11,10 +11,12 @@
 	<div class='posts'>
 	@foreach ($posts as $post)
 			<div class='post'>
-				<h2 class='title'>{{$post->title}}</h2>
-				<p class='body'>{{$post->body}}</p>
-				<p class='created_at'>{{$post->created_at}}</p>
-				<p class='updated_at'>{{$post->updated_at}}</p>
+				<h2 class='title'>
+                    <a href="posts/{{ $post->id }}">{{ $post->title }}</a>
+                </h2>
+				<!-- <p class='body'>{{ $post->body }}</p>
+				<p class='created_at'>{{ $post->created_at }}</p>
+				<p class='updated_at'>{{ $post->updated_at }}</p> -->
 			</div>
 	@endforeach
 	</div>
