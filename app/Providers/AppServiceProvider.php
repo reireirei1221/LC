@@ -24,6 +24,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-	    Paginator::useBootstrap();
+	    Paginator::useBootstrap(); // ページネーションにBootstrapのスタイルが適用される
+        \URL::forceScheme('https'); // Laravelが生成するURLが常にHTTPSを使用するように指示
+        $this->app['request']->server->set('HTTPS', 'on'); // すべてのリクエストがHTTPSで送信されることを保証
     }
 }

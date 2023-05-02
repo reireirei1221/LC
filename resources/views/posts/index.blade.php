@@ -26,7 +26,14 @@
 	<div class='paginate'>
 		{{ $posts->links() }}
 	</div>
-    <a href='/posts/create'>create</a>
+    <div class='create'>
+        <a href='/posts/create'>create</a>
+    </div>
+    <div>
+        <p>ログインユーザー : {{ Auth::user()->name }}</p>
+    </div>
+    
+
 </body>
 </html>
 <?php
